@@ -34,6 +34,12 @@ public class Bank {
             System.out.println("Invalid action");
             return;
         }
+
+        if (findAccountByNumber(account.getAccountNumber()) != null) {
+            System.out.println("Account already exists");
+            return;
+        }
+
         if (accountCount >= accounts.length) {
             System.out.println("Bank is full");
             return;
