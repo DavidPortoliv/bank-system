@@ -11,15 +11,6 @@ public class Bank {
         accounts = new Account[10];
     }
 
-    public void printAccounts() {
-        for (int i = 0; i < accountCount; i++) {
-            System.out.println("Customer: " + accounts[i].getCustomer().getName());
-            System.out.println("Account: " + accounts[i].getAccountNumber());
-            System.out.println("Agency: " + accounts[i].getAgency());
-            System.out.println();
-        }
-    }
-
     public Account findAccountByNumber(int accountNumber) {
         for (int i = 0; i < accountCount; i++) {
             if (accounts[i].getAccountNumber() == accountNumber) {
@@ -51,5 +42,13 @@ public class Bank {
 
     public String getName() {
         return name;
+    }
+
+    public int getAccountCount() {
+        return accountCount;
+    }
+
+    public Account[] getAccounts() {
+        return accounts;
     }
 }
