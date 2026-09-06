@@ -1,5 +1,6 @@
 package bank.system.view;
 
+import bank.system.domain.Account;
 import bank.system.domain.Bank;
 
 public class BankView {
@@ -17,5 +18,9 @@ public class BankView {
             System.out.println("Agency: " + bank.getAccounts()[i].getAgency());
             System.out.println();
         }
+    }
+    public void printBalanceAccount(Account account) {
+        System.out.println("Customer: " + account.getCustomer().getName());
+        System.out.println("Balance: " + account.getBalance());
     }
 }

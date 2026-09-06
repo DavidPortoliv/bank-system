@@ -5,7 +5,6 @@ public class Bank {
     private Account[] accounts;
     private int accountCount;
 
-
     public Bank(String name) {
         this.name = name;
         accounts = new Account[10];
@@ -18,6 +17,15 @@ public class Bank {
             }
         }
         return null;
+    }
+
+    public boolean transferByNumber(int accountNumberOrigin, int accountNumberDestiny, double value) {
+        Account origin = findAccountByNumber(accountNumberOrigin);
+        Account destiny = findAccountByNumber(accountNumberDestiny);
+        if (origin == null || destiny == null) {
+            return false;
+        }
+        return origin.transfer(destiny, value);
     }
 
     public void addAccount(Account account) {

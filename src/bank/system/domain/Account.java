@@ -30,13 +30,19 @@ public class Account {
         this.balance -= value;
     }
 
-    public void transfer(Account account, double value) {
+    boolean transfer(Account account, double value) {
+        if (account == null || account == this) {
+            System.out.println("Invalid Operation!");
+            return false;
+        }
+
         if (value <= 0 || value > this.balance) {
             System.out.println("Invalid Operation!");
-            return;
+            return false;
         }
         account.balance += value;
         this.balance -= value;
+        return true;
     }
 
     public Customer getCustomer() {

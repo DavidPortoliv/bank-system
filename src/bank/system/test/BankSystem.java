@@ -21,8 +21,7 @@ public class BankSystem {
         bankView.printAccounts();
         bank.findAccountByNumber(83193).deposit(323);
         System.out.println(account2.getBalance());
-        bank.findAccountByNumber(53253).transfer(account1, 312);
 
-
+        bank.transferByNumber(83193, 83192, 221);
     }
 }
