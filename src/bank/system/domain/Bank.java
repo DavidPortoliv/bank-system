@@ -28,24 +28,19 @@ public class Bank {
         return origin.transfer(destiny, value);
     }
 
-    public void addAccount(Account account) {
+    public boolean addAccount(Account account) {
         if (account == null) {
-            System.out.println("Invalid action");
-            return;
+            return false;
         }
-
         if (findAccountByNumber(account.getAccountNumber()) != null) {
-            System.out.println("Account already exists");
-            return;
+            return false;
         }
-
         if (accountCount >= accounts.length) {
-            System.out.println("Bank is full");
-            return;
+            return false;
         }
-
         accounts[accountCount] = account;
         accountCount++;
+        return true;
     }
 
     public String getName() {
@@ -54,9 +49,5 @@ public class Bank {
 
     public int getAccountCount() {
         return accountCount;
-    }
-
-    public Account[] getAccounts() {
-        return accounts;
     }
 }
