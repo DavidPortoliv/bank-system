@@ -28,7 +28,7 @@ public class BankMenu {
                     registerAccount();
                     break;
                 case 2:
-                    System.out.println("");
+                    enterAccount();
                     break;
                 case 0:
                     System.out.println("Exiting Bank...");
@@ -53,12 +53,9 @@ public class BankMenu {
         scanner.nextLine();
         System.out.println("Type your CPF");
         customerCpf = scanner.nextLine();
-
         Customer customer = new Customer(customerName, customerAge, customerCpf);
         Account account = new Account(customer, bank.getNextAccountNumber(), agencyNumber);
-
         boolean accountAdded = bank.addAccount(account);
-
         if (!accountAdded) {
             System.out.println("Invalid account creation");
             return;
@@ -66,7 +63,19 @@ public class BankMenu {
         System.out.println("Congratulations! Account added");
         System.out.println("Number of account " + account.getAccountNumber());
         bank.nextAccountNumberIncrease();
+    }
 
+    private void enterAccount() {
+        System.out.println("Please type your Account Number");
+        int enteredAccountNumber = scanner.nextInt();
+        scanner.nextLine();
+        Account account = bank.findAccountByNumber(enteredAccountNumber);
+        if (account == null) {
+            System.out.println("Incorrect Number!");
+            return;
+        }
+
+        System.out.println("Welcome " + account.getCustomer().getName());
 
     }
 }
