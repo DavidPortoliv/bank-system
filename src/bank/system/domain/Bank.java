@@ -4,10 +4,12 @@ public class Bank {
     private String name;
     private Account[] accounts;
     private int accountCount;
+    private int nextAccountNumber;
 
     public Bank(String name) {
         this.name = name;
         accounts = new Account[10];
+        nextAccountNumber = 21962;
     }
 
     public Account findAccountByNumber(int accountNumber) {
@@ -43,8 +45,16 @@ public class Bank {
         return true;
     }
 
+    public void nextAccountNumberIncrease() {
+        nextAccountNumber++;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getNextAccountNumber() {
+        return nextAccountNumber;
     }
 
     public int getAccountCount() {

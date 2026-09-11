@@ -3,6 +3,7 @@ package bank.system.test;
 import bank.system.domain.Account;
 import bank.system.domain.Bank;
 import bank.system.domain.Customer;
+import bank.system.view.BankMenu;
 import bank.system.view.BankView;
 
 public class BankSystem {
@@ -14,14 +15,14 @@ public class BankSystem {
         Account account2 = new Account(customer2, 83192, 3232);
         Account account3 = new Account(customer3, 53253, 2323);
         Bank bank = new Bank("Sicoob");
-        BankView bankView = new BankView(bank);
         bank.addAccount(account1);
         bank.addAccount(account2);
         bank.addAccount(account3);
-        bankView.printAccounts();
         bank.findAccountByNumber(83193).deposit(323);
-        System.out.println(account2.getBalance());
+
 
         bank.transferByNumber(83193, 83192, 221);
+        BankMenu bankMenu = new BankMenu(bank);
+        bankMenu.startMenu();
     }
 }

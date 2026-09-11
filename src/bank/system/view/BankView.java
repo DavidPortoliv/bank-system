@@ -11,16 +11,29 @@ public class BankView {
         this.bank = bank;
     }
 
-    public void printAccounts() {
-        for (int i = 0; i < bank.getAccountCount(); i++) {
-            System.out.println("Customer: " + bank.getAccounts()[i].getCustomer().getName());
-            System.out.println("Account: " + bank.getAccounts()[i].getAccountNumber());
-            System.out.println("Agency: " + bank.getAccounts()[i].getAgency());
-            System.out.println();
-        }
-    }
     public void printBalanceAccount(Account account) {
         System.out.println("Customer: " + account.getCustomer().getName());
         System.out.println("Balance: " + account.getBalance());
+    }
+
+    public void showMainMenu() {
+        System.out.println("Welcome to the <" + bank.getName() + "> bank!");
+        System.out.println("Please choose an option below:");
+        System.out.println();
+        System.out.println("1 - register a account");
+        System.out.println("2 - enter your account");
+        System.out.println("0 - leave");
+    }
+
+    public void showAccountMenu() {
+        System.out.println("Welcome!");
+        System.out.println("Account Menu");
+        System.out.println("Please choose a option down below");
+        System.out.println();
+        System.out.println("1 - Check balance");
+        System.out.println("2 - Deposit");
+        System.out.println("3 - Withdraw");
+        System.out.println("4 - Transfer");
+        System.out.println("0 - Back");
     }
 }
