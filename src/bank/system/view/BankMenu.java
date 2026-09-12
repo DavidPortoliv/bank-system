@@ -74,8 +74,58 @@ public class BankMenu {
             System.out.println("Incorrect Number!");
             return;
         }
-
         System.out.println("Welcome " + account.getCustomer().getName());
+        startAccountMenu(account);
+    }
 
+    private void startAccountMenu(Account account) {
+        boolean accountMenuRunning = true;
+        while (accountMenuRunning) {
+            bankView.showAccountMenu();
+            int optionAccountMenu = scanner.nextInt();
+            scanner.nextLine();
+            switch (optionAccountMenu) {
+                case 1:
+                    System.out.println("Balance: " + account.getBalance());
+                    break;
+                case 2:
+                    System.out.println("Type a value to deposit");
+                    double valueDeposit = scanner.nextDouble();
+                    scanner.nextLine();
+                    account.deposit(valueDeposit);
+                    System.out.println("Successful operation!");
+                    System.out.println("Updated balance: " + account.getBalance());
+                    break;
+                case 3:
+                    System.out.println("Type a value to withdraw");
+                    double valueWithdraw = scanner.nextDouble();
+                    scanner.nextLine();
+                    account.withdraw(valueWithdraw);
+                    System.out.println("Successful operation!");
+                    System.out.println("Updated balance: " + account.getBalance());
+                    break;
+                case 4:
+                    System.out.println("Type the number of the account you would like to transfer");
+                    int destinationAccountNumber = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Type a value to transfer");
+                    double valueTransfer = scanner.nextDouble();
+                    scanner.nextLine();
+                    if (!bank.transferByNumber(account.getAccountNumber(), destinationAccountNumber, valueTransfer)) {
+                        System.out.println("Operation failed!");
+                        break;
+                    }
+                    System.out.println("Successful operation!");
+                    System.out.println("Updated balance: " + account.getBalance());
+                    break;
+                case 0:
+                    System.out.println("Previous Menu...");
+                    accountMenuRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid option!");
+                    System.out.println("Type again");
+            }
+        }
     }
 }

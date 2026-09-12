@@ -26,14 +26,12 @@ public class BankView {
     }
 
     public void showAccountMenu() {
-        System.out.println("Welcome!");
-        System.out.println("Account Menu");
-        System.out.println("Please choose a option down below");
+        System.out.println("Please choose an option");
         System.out.println();
-        System.out.println("1 - Check balance");
+        System.out.println("1 - Account Balance");
         System.out.println("2 - Deposit");
         System.out.println("3 - Withdraw");
         System.out.println("4 - Transfer");
-        System.out.println("0 - Back");
+        System.out.println("0 - back");
     }
 }
